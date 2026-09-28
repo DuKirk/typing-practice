@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TypingMaster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#" data-page="home">TYPINGMASTER</a>
+
+    <nav class="nav" aria-label="Main navigation">
+      <button class="nav-link active" data-page="home">Test</button>
+      <button class="nav-link" data-page="practice">Practice</button>
+      <button class="nav-link" data-page="progress">Progress</button>
+      <button class="nav-link" data-page="settings">Settings</button>
+    </nav>
+
+    <button class="menu-button" id="menuButton" aria-label="Open menu">☰</button>
+  </header>
+
+  <main class="container">
+    <!-- HOME / TEST -->
+    <section class="page active-page" id="home">
+      <div class="page-heading">
+        <p class="eyebrow">TYPING TEST</p>
+        <h1>60 SECOND TEST</h1>
+      </div>
+
+      <div class="test-settings">
+        <button class="setting active">60 sec</button>
+        <button class="setting">30 sec</button>
+        <button class="setting">15 sec</button>
+        <button class="setting">120 sec</button>
+      </div>
+
+      <div class="above-test" style="width:100%; display:flex; justify-content:flex-end; align-items:center;">
+        <div class="timer-display">
+          <span>Time</span>
+          <strong id="timeValue">60</strong>
+        </div>
+      </div>
+
+      <section class="typing-panel">
+        <div
+          id="typingSurface"
+          class="typing-surface"
+          tabindex="0"
+          role="textbox"
+          aria-label="Typing practice area"
+        ></div>
+
+        <input
+          id="typingInput"
+          class="typing-capture"
+          type="text"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          aria-hidden="true"
+        />
+      </section>
+
+      <div class="below-test" style="width:100%; display:flex; align-items:center; justify-content:center; gap:28px;">
+        <div class="below-test-actions">
+          <button id="restartButton" class="restart-button" aria-label="Restart test">
+            <span class="restart-icon" aria-hidden="true">↻</span>
+            <span>Restart</span>
+          </button>
+          <span id="testStatus" class="test-status">Start typing to begin</span>
+        </div>
+      </div>
+
+      <section class="test-result" id="testResult" aria-live="polite" hidden>
+        <p class="section-title">TEST RESULT</p>
+
+        <div class="result-grid">
+          <div>
+            <span>WPM</span>
+            <strong id="wpmValue">--</strong>
+          </div>
+          <div>
+            <span>Accuracy</span>
+            <strong id="accuracyValue">--</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="performance" aria-live="polite">
+        <p class="section-title">YOUR PERFORMANCE</p>
+
+        <div class="performance-grid">
+          <div>
+            <span>Tests</span>
+            <strong id="sessionTests">0</strong>
+          </div>
+          <div>
+            <span>Practice Time</span>
+            <strong id="sessionTime">0 min</strong>
+          </div>
+          <div>
+            <span>Avg. WPM</span>
+            <strong id="sessionWpm">0</strong>
+          </div>
+          <div>
+            <span>Avg. Accuracy</span>
+            <strong id="sessionAccuracy">0%</strong>
+          </div>
+          <div>
+            <span>Best WPM</span>
+            <strong id="sessionBestWpm">0</strong>
+          </div>
+          <div>
+            <span>Best Accuracy</span>
+            <strong id="sessionBestAccuracy">0%</strong>
+          </div>
+        </div>
+
+        <p class="session-note">Session only. Your results disappear when you leave or refresh the website.</p>
+      </section>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="page" id="practice">
+      <p class="eyebrow">PRACTICE</p>
+      <h1>Targeted Practice</h1>
+      <p class="muted">Practice will be generated from your weak keys and common typing errors.</p>
+
+      <div class="simple-list">
+        <div>E — weak key</div>
+        <div>R — weak key</div>
+        <div>T — weak key</div>
+        <div>P — weak key</div>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="page" id="progress">
+      <p class="eyebrow">PROGRESS</p>
+      <h1>Your Progress</h1>
+      <p class="muted">Your WPM, accuracy and consistency history will appear here.</p>
+
+      <div class="simple-list">
+        <div>Best speed — 62 WPM</div>
+        <div>Best accuracy — 94.2%</div>
+        <div>Tests completed — 0</div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="page" id="settings">
+      <p class="eyebrow">SETTINGS</p>
+      <h1>Settings</h1>
+      <p class="muted">Interface and typing preferences will be added here.</p>
+    </section>
+  </main>
+
+  <script src="passages.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
