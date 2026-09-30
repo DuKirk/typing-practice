@@ -12,6 +12,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+  .game-page-heading {
+    margin-bottom: 20px;
+  }
+
+  .game-page-heading h1 {
+    margin-bottom: 8px;
+  }
+
+  .typing-game-frame-wrap {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 1px 0 #fff inset, 0 18px 40px -24px rgba(20, 33, 61, 0.35);
+  }
+
+  .typing-game-frame {
+    display: block;
+    width: 100%;
+    height: 900px;
+    border: 0;
+    background: transparent;
+  }
+
+  @media (max-width: 700px) {
+    .typing-game-frame {
+      height: 820px;
+    }
+  }
+
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -20,6 +53,7 @@
     <nav class="nav" aria-label="Main navigation">
       <button class="nav-link active" data-page="home">Test</button>
       <button class="nav-link" data-page="practice">Practice</button>
+      <button class="nav-link" data-page="typing-game">Typing Game</button>
       <button class="nav-link" data-page="progress">Progress</button>
       <button class="nav-link" data-page="settings">Settings</button>
     </nav>
@@ -160,6 +194,23 @@
       </div>
     </section>
 
+    <!-- TYPING GAME -->
+    <section class="page" id="typing-game">
+      <div class="game-page-heading">
+        <h1>Typing Game</h1>
+        <p class="muted">Practice your typing with Word Rain.</p>
+      </div>
+
+      <div class="typing-game-frame-wrap">
+        <iframe
+          class="typing-game-frame"
+          src="typing-game.html"
+          title="Word Rain typing game"
+          loading="lazy"
+        ></iframe>
+      </div>
+    </section>
+
     <!-- PROGRESS -->
     <section class="page" id="progress">
       <h1>Your Progress</h1>
@@ -181,6 +232,14 @@
 
   <script src="passages.js"></script>
   <script src="script.js"></script>
+  <script>
+    window.addEventListener("message", (event) => {
+      if (event.data && event.data.type === "typing-game-exit") {
+        const testLink = document.querySelector('.nav-link[data-page="home"]');
+        if (testLink) testLink.click();
+      }
+    });
+  </script>
 </body>
 </html>
 <!-- Google tag (gtag.js) -->
