@@ -5,6 +5,12 @@
   --accent: #2f5bea; --accent-soft: #e6ecff; --untyped: #b8c1d0;
   --result-bg: #101828; --result-ink: #ffffff; --result-sub: #9aa6bd;
 }
+/* Classic: the original practice-page look (soft grey page, white keys, blue accent) */
+:root[data-theme="classic"] {
+  --bg: #fafafa; --surface: #ffffff; --ink: #2b2f36; --muted: #9aa0a8; --line: #d9dce1;
+  --accent: #4a90e2; --accent-soft: #e3eefb; --error: #d64545; --untyped: #b4bac3;
+  --result-bg: #2b2f36; --result-ink: #ffffff; --result-sub: #aab1bc;
+}
 :root[data-theme="dark"] {
   color-scheme: dark;
   --bg: #0e1424; --surface: #161e33; --ink: #e8edf7; --muted: #93a1ba; --line: #26314d;
